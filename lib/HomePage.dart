@@ -11,9 +11,20 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
 
-      appBar: new AppBar(
-        title: new Text("Json Parsing"),
+      appBar: new AppBar(               // App ToolBar
+        title: new Text("Json Parsing"),//ToolBar title
         backgroundColor: Colors.orange,
+        actions:<Widget>[               //Adding Icon Button on Tool Bar
+
+          new IconButton(
+            icon: new Icon(Icons.search),
+            onPressed: ()=>debugPrint("Search"),
+          ),
+          new IconButton(
+            icon: new Icon(Icons.add),
+            onPressed: ()=>debugPrint("Add New"),
+          )
+        ],
       ),
 
     );
