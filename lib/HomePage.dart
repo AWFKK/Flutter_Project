@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:async';
 
 class Home extends StatefulWidget {
   @override
@@ -7,6 +9,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -26,6 +33,68 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
+
+      //Adding Drawer
+      drawer: new Drawer(
+        child: new ListView(
+          children:<Widget>[
+            //Name And Email Heading
+            new UserAccountsDrawerHeader(                       //Main Heading
+              accountName: new Text("Abdul Wahab Faiz"),
+              accountEmail: new Text("abdulwahabfaiz@gmail.com"),
+              decoration: new BoxDecoration(
+                color: Colors.deepOrange
+              ),
+            ),
+
+            new ListTile(                                     //Option One
+              title: new Text("First Page"),
+              leading: new Icon(Icons.search,color: Colors.orange,),
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+            ),
+
+            new ListTile(                                     //Option Two
+              title: new Text("Second Page"),
+              leading: new Icon(Icons.add,color: Colors.red,),
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+            ),
+
+            new ListTile(                                     //Option Three
+              title: new Text("Third Page"),
+              leading: new Icon(Icons.title,color: Colors.purple,),
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+            ),
+
+            new ListTile(                                     //Option Four
+              title: new Text("Fourth Page"),
+              leading: new Icon(Icons.list,color: Colors.green,),
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+            ),
+
+            //Creating Divider
+            new Divider(
+              height: 10.0,
+            ),
+            new ListTile(
+              title: new Text("Cloce"),
+              leading: new Icon(Icons.close,color: Colors.blueAccent,),
+              onTap: (){
+                Navigator.of(context).pop();
+              },
+            )
+
+          ],
+        ),
+      ),
+
 
     );
   }
