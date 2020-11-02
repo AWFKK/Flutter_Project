@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import 'Model/Data.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,7 +11,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  
+    //Its A faction type
+    // User to retrieve
+    // data from server
+    // OR
+    // Api
+    Future<List<Data>> getAllData() async{
+
+    }
 
 
 
@@ -19,7 +27,7 @@ class _HomeState extends State<Home> {
     return new Scaffold(
 
       appBar: new AppBar(               // App ToolBar
-        title: new Text("Json Parsing"),//ToolBar title
+        title: new Text("JSON Parsing"),//ToolBar title
         backgroundColor: Colors.orange,
         actions:<Widget>[               //Adding Icon Button on Tool Bar
 
