@@ -1,0 +1,5 @@
+@baseUrl = https://dog.ceo/api/breeds/image
+@authorization = test
+
+# Used to get an access token given an autorization key
+POST {{baseUrl}}/random
