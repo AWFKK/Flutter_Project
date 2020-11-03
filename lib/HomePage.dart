@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -138,21 +139,57 @@ class _HomeState extends State<Home> {
                 if(snapshort.data==null)
                 {
                   return Center(
-                    child: new Text("Loading Data"),
+                    child: new Text("Loading Data..."),
                   );
                 }else{
                   return ListView.builder(
                       itemCount: snapshort.data.length,
+                      scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext c, int index){
                         return Card(
                           elevation: 10.0,
                           child: new Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               new Image.network(snapshort.data[index].url,
 
                                 height: 150.0,
                                 width: 150.0,
                                 fit: BoxFit.cover,
+
+                              ),
+
+                              new SizedBox(height: 7.0,),
+
+                              new Container(
+                                margin: EdgeInsets.all(6.0),
+                                height: 50.0,
+                                child: new Row(
+
+                                  children: <Widget>[
+
+                                    new Container(
+                                      child: new CircleAvatar(
+                                        child: new Text(snapshort.data[index].id.toString()),
+                                      ),
+                                    ),
+
+                                    new SizedBox(
+                                      width: 6.0,
+                                    ),
+                                    new Container(
+                                      width: 80.0,
+                                      child: new Text(snapshort.data[index].title,
+                                      maxLines: 1,
+                                        style: TextStyle(
+                                          color: Colors.deepOrange
+                                        ),
+                                      ),
+                                    )
+
+
+                                  ],
+                                ),
 
                               )
                             ],
