@@ -18,6 +18,25 @@ class _HomeState extends State<Home> {
     // Api
     Future<List<Data>> getAllData() async{
 
+        //BaseUrl Or Api Url
+        var api  = "https://jsonplaceholder.typicode.com/photos";
+        //Getting Response
+        var data =  await http.get(api);
+
+        //Converting
+        //Response Data Into Json Format
+        var JsonData = json.decode(api);
+
+        List<Data>listof = [];
+        for(var i in JsonData){
+
+          Data data = new Data(i["id"],i["title"],i["url"],i["thumbnailUrl"]);
+          listof.add(data) ;
+          debugPrint(data.toString());
+        }
+
+
+        return listof;
     }
 
 
@@ -92,7 +111,7 @@ class _HomeState extends State<Home> {
               height: 10.0,
             ),
             new ListTile(
-              title: new Text("Cloce"),
+              title: new Text("Close"),
               leading: new Icon(Icons.close,color: Colors.blueAccent,),
               onTap: (){
                 Navigator.of(context).pop();
@@ -103,7 +122,56 @@ class _HomeState extends State<Home> {
         ),
       ),
 
+      //Creating Body
+      //Other Word
+      //Creating Main Layout
+      body: new ListView(
+        children:<Widget> [
+
+          new Container(
+            margin: EdgeInsets.all(10.0),
+            height: 250.0,
+            child: new FutureBuilder(
+              future: getAllData(),
+              builder: (BuildContext c, AsyncSnapshot snapshort ){
+
+                if(snapshort.data==null)
+                {
+                  return Center(
+                    child: new Text("Loading Data"),
+                  );
+                }else{
+                  return ListView.builder(
+                      itemCount: snapshort.data.length,
+                      itemBuilder: (BuildContext c, int index){
+                        return Card(
+                          elevation: 10.0,
+                          child: new Column(
+                            children: <Widget>[
+                              new Image.network(snapshort.data[index].url,
+
+                                height: 150.0,
+                                width: 150.0,
+                                fit: BoxFit.cover,
+
+                              )
+                            ],
+                          ),
+                        );
+                      }
+                  ) ;
+                }
+
+              }
+            ),
+          )
+
+
+        ],
+      )
+
 
     );
   }
+
 }
