@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
 
         //Converting
         //Response Data Into Json Format
-        var JsonData = json.decode(api);
+        var JsonData = json.decode(data.body);
 
         List<Data>listof = [];
         for(var i in JsonData){
