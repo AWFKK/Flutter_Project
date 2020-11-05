@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
       appBar: new AppBar(
         // App ToolBar
         title: new Text("JSON Parsing"), //ToolBar title
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.green,
         actions: <Widget>[
           //Adding Icon Button on Tool Bar
 
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
               //Main Heading
               accountName: new Text("Abdul Wahab Faiz"),
               accountEmail: new Text("abdulwahabfaiz@gmail.com"),
-              decoration: new BoxDecoration(color: Colors.deepOrange),
+              decoration: new BoxDecoration(color: Colors.green),
             ),
 
             new ListTile(
